@@ -1,0 +1,37 @@
+//Gbtubelonia
+function mightyCreateStackChart(placement, data,x_title="",y_title="",chartTitle="",color_arr=""){
+
+    let traces = [];
+
+    data.forEach(d =>{
+        let trace = {
+            x: d.x,
+            y: d.y,
+            type: 'bar',
+            name: d.name,
+            text: d.name + ": " + d.y.map(String),
+            textposition: 'auto',
+            hoverinfo: 'none',
+            marker: {
+                color: color_arr,
+                opacity: 0.6,
+                line: {
+                color: 'rgb(8,48,107)',
+                width: 1.5
+                }
+            }
+        }
+        traces.push(trace);
+    });
+
+    var layout = {
+        automargin: true,
+        showlegend: false,
+        title: chartTitle,
+        xaxis: {title: x_title },
+        yaxis: {title: y_title },
+        barmode: 'stack'
+    };
+
+    Plotly.newPlot(placement, traces, layout, {staticPlot: true, responsive: true});
+}
