@@ -35,3 +35,5 @@ function mightyCreateStackChart(placement, data,x_title="",y_title="",chartTitle
 
     Plotly.newPlot(placement, traces, layout, {staticPlot: true, responsive: true});
 }
+
+//test comment
